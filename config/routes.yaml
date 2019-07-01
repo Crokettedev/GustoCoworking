@@ -1,0 +1,4 @@
+#index:
+#    path: /Coworking-Gusto
+#    controller: App\Controller\PagePrincipalController::index
+

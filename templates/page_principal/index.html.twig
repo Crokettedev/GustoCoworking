@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+{% block title %}Coworking Gusto{% endblock %}
+{% block body %}
+    <br>
+    <div class="container">
+    {% if not app.user %}
+    <h5>Traviller chez Gusto-Coffe c'est :
+        <span class="txt-rotate" data-period="9000" data-rotate='[ "Travailler en équipe.", "Créer son équipe.", "Aider un collègue ou un futur collègue.", "Le Kiffe tout simplement !" ]'></span>
+    </h5>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/screen.jpg" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen (1).jpg" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/screen (2).jpg" class="d-block w-100">
+                        </div>
+                    </div>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control" aria-hidden="true"><i class="fas fa-arrow-alt-circle-right" id="fas"></i></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card text-center" id="card_principal_2">
+                <div class="card-body" >
+                    <img src="img/Gusto_7.png" class="mr-3" id="img_Gusto7bis">
+                    <p class="card-text">Un lieu d'échange et de partage autour d'un café venu d'Italie avec nos délicieuse viennoiseries.</p>
+                    <div>
+                        <a href="#"><img src="img/thumbnail_large.png" class="card-img-top" id="thumbnail"></a>
+                        <a href="#"><img src="img/tasse.png" class="card-img-top" id="tasse"></a>
+                        <a href="#"><img src="img/donuts.png" class="card-img-top" id="donuts"></a>
+                    </div>
+                    <br>
+                    <p class="card-text">Profitez aussi de nos espaces équipés avec impression et stockage privée en ligne.</p>
+                    <div>
+                        <a href="#"><img src="img/ordi.png" class="card-img-top" id="ordi"></a>
+                        <a href="#"><img src="img/database.png" class="card-img-top" id="database"></a>
+                        <a href="#"><img src="img/imprimante.png" class="card-img-top" id="imprimante"></a>
+                    </div>
+                    <br>
+                    <a href="#" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" id="btn" aria-controls="collapseExample">Réserver une place</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3 text-center" id="card-reservation-index">
+        <div class="collapse" id="collapseExample">
+            <h5>Pensez à vous inscrire avant de réserver, c'est rapide &nbsp;<img src="img/wink.png" class="card-img-top" alt="..." id="wink">&nbsp;&nbsp;<a href="{{ path('app_register') }}" class="btn btn-primary" id="btn">S'inscrire</a></h5>
+            <div class="card card-body" id="card-reservation-index">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Espace public</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="{{ path('public') }}" class="btn btn-primary" id="btn">Réserver ici</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Salons privées</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="{{ path('private') }}" class="btn btn-primary" id="btn">Réserver ici</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-center" id="card_principal_4">
+                <div class="card-body" >
+                    <h5>Profitez de nos espaces verts &nbsp;<img src="img/arbre.png" class="card-img-top" id="arbre"></h5>
+                    <p class="card-text">Au coeur de la capital parisienne, nous avons installé un espace vert, écologique, respectif de la nature. Soigneusement pensé, parfaitement aménager pour que vous et vos collègues puissent travailler dans de conditions idéales.</p>
+                    <div>
+                        <a href="#"><img src="img/friends.png" class="card-img-top" alt="..." id="friends"></a>
+                        <a href="#"><img src="img/toureiffeil.png" class="card-img-top" id="toureiffeil"></a>
+                        <a href="#"><img src="img/bureau.png" class="card-img-top" id="bureau"></a>
+                    </div>
+                    <br>
+                    <a href="{{ path('contact') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card text-center" id="card_principal_5">
+                <div class="card">
+
+                    <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/office_green.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/office1.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/office2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <a class="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next">
+                            <span class="carousel-control" aria-hidden="true"><i class="fas fa-arrow-alt-circle-right" id="fas"></i></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card card-body text-center" id="card-reservation-index">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Les dernières news
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Vos dernières réservations
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <br>
+
+
+
+{% endblock %}

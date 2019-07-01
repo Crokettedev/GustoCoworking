@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espaces public{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+    <div class="card-header text-center" id="card-reser">
+        Découvrez nos espaces public
+    </div>
+    {% if not app.user %}
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header" id="card-reser">
+                            Découvrez nos espaces public
+                        </div>
+                        <div class="card-body">
+                            <a href="{{ path('app_register') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" id="card-reser">
+                        Découvrez nos espaces public
+                    </div>
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" id="card-reser">
+                        Découvrez nos espaces public
+                    </div>
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" id="card-reser">
+                        Découvrez nos espaces public
+                    </div>
+                    <div class="card-body">
+                        <a href="{{ path('page_principal') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" id="card-reser">
+                        Découvrez nos espaces public
+                    </div>
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" id="card-reser">
+                        Découvrez nos espaces public
+                    </div>
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <br>
+{% endblock %}
