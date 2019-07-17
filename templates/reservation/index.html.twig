@@ -5,54 +5,37 @@
 {% block body %}
 <br>
 <div class="container">
-    <div class="container">
-        <div class="card card-body text-center" id="card-reservation-index">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card" id="card-reser">
-                        <div class="card-header" id="card-reser">
-                            Avantages à vous inscire
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Gusto-Coffee prend soin de vous, start-ups, freelances, entreprises, coworkers,
-                                en vous proposant de quoi se restaurer tout au long de la journée.
-                                Mais notre attention ne s'arrête pas là, pour vous, nous avons mis en place un service à table pour déguster nos plats préparés sur place. Eh, oui, nos espaces sont aussi chez vous !</p>
-                            <div>
-                                <a href="#"><img src="img/spaghetti.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                                <a href="#"><img src="img/diet.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                            </div>
-                            <br>
-                            <a href="#" class="btn btn-primary" id="btn" data-toggle="modal" data-target="#exampleModal">Voir la carte</a>
-                            <br>
-                            <br>
-                            <p class="card-text">Chez Gusto-Coffee, la fidélité est toujours récompensée, en créant un compte vous accédez à notre programme de fidélité et bénéficier de réduction et des surprises tout au long de l'année.</p>
-                            <div>
-                                <a href="#"><img src="img/giftbox.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                            </div>
-                            <br>
-                            <a href="#" class="btn btn-primary" id="btn" data-toggle="modal" data-target="#exampleModal1">Programme fidélité</a>
-                            <br>
-                            <br>
-                            <p class="card-text">Profitez d'un réseau de professionnel, avec notre platform de mise en relation entre professionnel. Soyez tous le temps proches de la communauté en téléchargent notre application.<br>
-                                Disponible sur android et App Store.</p>
-                            <div>
-                                <a href="#"><img src="img/smartphone.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                                <a href="#"><img src="img/Android.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                                <a href="#"><img src="img/app-store.png" class="card-img-top" alt="..." style="width: 40px;"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card" id="card-reser">
-                        <div class="card-header" id="card-reser">
-                            S'inscrire
-                        </div>
-                        <div class="card-body">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            Vous réserver le salon :  <b style="color: #994d00">{{ sallepriver.titre }}</b>
         </div>
+        <div class="card-body text-center">
+            <h6>Ce salon est actuellement disponible à la réservation</h6>
+            <p class="card-text">Les prix sont de </p>
+            <a href="{{ path('public') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+            <hr class="my-4">
+            <h6>Les prix</h6>
+            <div class="form-inline">
+                <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only">Email</label>
+                    <button class="btn btn-info mb-2">Une matinée : {{ sallepriver.PrixMatin }}€</button>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <button  class="btn btn-info mb-2">Un après-midi : {{ sallepriver.PrixAprem }}€</button>
+                </div>
+                <button  class="btn btn-info mb-2">Une journée : {{ sallepriver.PrixJourne }}€</button>
+            </div>
+            <hr class="my-4">
+            Tous nos salons de <b style="color: #994d00">4 et 6 places</b> sont équipés de :
+            <br>
+            <img src="img/router.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+            <img src="img/tasse.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+            <img src="img/water.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+            <img src="img/apple.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+            <img src="img/imprimante.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;&nbsp;
+            <img src="img/monitor.png" class="card-img-top" alt="..." style="width: 34px;" >
+        </div>
+    </div>
+    <br>
 {% endblock %}

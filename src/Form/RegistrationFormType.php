@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -79,10 +81,10 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
 
-            ->add('phone', TextType::class, [
+            ->add('phone', TelType::class, [
                 'label' => 'N° Téléphone', 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Nom'],
+                    'placeholder' => 'N° Téléphone'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Entrez un n° de téléphone valide.',
@@ -99,7 +101,7 @@ class RegistrationFormType extends AbstractType
             ->add('job', TextType::class, [
                 'label' => 'Profession', 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Profession'],
+                    'placeholder' => 'Ex : Informaticien, Commercial'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Entrez une profession.',

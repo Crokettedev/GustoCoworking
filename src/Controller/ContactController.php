@@ -12,7 +12,7 @@ use App\Form\ContactFormType;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/Contact", name="contact")
      */
     public function index(Request $request): Response
     {

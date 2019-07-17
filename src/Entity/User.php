@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -61,10 +64,30 @@ class User implements UserInterface
      */
     private $job;
 
-    public function getId(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Commandefood", mappedBy="id_users")
+     */
+    private $commandefoods;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Panier", mappedBy="idusers")
+     */
+    private $paniers;
+
+    public function __construct()
+    {
+        $this->commandefoods = new ArrayCollection();
+        $this->paniers = new ArrayCollection();
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getid(): int
     {
         return $this->id;
     }
+
 
     public function getEmail(): ?string
     {
@@ -198,4 +221,76 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Commandefood[]
+     */
+    public function getCommandefoods(): Collection
+    {
+        return $this->commandefoods;
+    }
+
+    public function addCommandefood(Commandefood $commandefood): self
+    {
+        if (!$this->commandefoods->contains($commandefood)) {
+            $this->commandefoods[] = $commandefood;
+            $commandefood->setIdUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommandefood(Commandefood $commandefood): self
+    {
+        if ($this->commandefoods->contains($commandefood)) {
+            $this->commandefoods->removeElement($commandefood);
+            // set the owning side to null (unless already changed)
+            if ($commandefood->getIdUsers() === $this) {
+                $commandefood->setIdUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return (string) $this->id;
+
+    }
+
+    /**
+     * @return Collection|Panier[]
+     */
+    public function getPaniers(): Collection
+    {
+        return $this->paniers;
+    }
+
+    public function addPanier(Panier $panier): self
+    {
+        if (!$this->paniers->contains($panier)) {
+            $this->paniers[] = $panier;
+            $panier->setIdusers($this);
+        }
+
+        return $this;
+    }
+
+    public function removePanier(Panier $panier): self
+    {
+        if ($this->paniers->contains($panier)) {
+            $this->paniers->removeElement($panier);
+            // set the owning side to null (unless already changed)
+            if ($panier->getIdusers() === $this) {
+                $panier->setIdusers(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
 }

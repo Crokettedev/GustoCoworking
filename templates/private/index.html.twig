@@ -1,20 +1,125 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espaces public{% endblock %}
+{% block title %}Salons privées{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<br>
+<div class="container">
+    {% if not app.user %}
+        <div class="card text-center" style="border-color: transparent">
+            <div class="card-body">
+                Salons privées <img src="img/astronaut.png" class="card-img-top" alt="..." style="width: 30px;" >
+                <br>
+                <h5><img src="img/casqueastro.png" class="card-img-top" alt="..." style="width: 40px;" > : "Allo Houston, nous avons des  <b style="color: #994d00">Coworkers"</b></h5>
+                <p>Identifiez-vous afin de profiter de notre salons privées interplanétaire, choisissez la prochaine planète ou vous allez travailler <a href="{{ path('app_login') }}" class="btn btn-sm" id="btn">Connectez-vous</a></p>
+            </div>
+            <img src="img/astro2.png" class="d-block w-100">
+        </div>
+        <div class="card text-center" style="border-color: transparent">
+            <div class="card-body">
+                Tous nos salons de <b style="color: #994d00">4 et 6 places</b> sont équipés de :
+                <br>
+                <img src="img/router.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/tasse.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/water.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/apple.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/imprimante.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;&nbsp;
+                <img src="img/monitor.png" class="card-img-top" alt="..." style="width: 34px;" >
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            </div>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/mac/Desktop/Projet Gusto/GustoPro/src/Controller/PrivateController.php'|file_link(0) }}">src/Controller/PrivateController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/mac/Desktop/Projet Gusto/GustoPro/templates/private/index.html.twig'|file_link(0) }}">templates/private/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+        <div class="card card-body text-center" id="card-reservation-index">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Salons à 6 places
+                        </div>
+                        <div class="card-body">
+                            {% for SallePrivers in SallePrive6 %}
+                            <h5>{{ SallePrivers.titre }}</h5>
+                            <p class="card-text">{{ SallePrivers.contenu }}</p>
+                            <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Salons à 4 places
+                        </div>
+                        <div class="card-body">
+                            {% for SallePrivers in SallePrive4 %}
+                                <h5>{{ SallePrivers.titre }}</h5>
+                                <p class="card-text">{{ SallePrivers.contenu }}</p>
+                                <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="card text-center" style="border-color: transparent">
+            <div class="card-body">
+                Salons privées <img src="img/astronaut.png" class="card-img-top" alt="..." style="width: 30px;" >
+                <br>
+                <h5><img src="img/casqueastro.png" class="card-img-top" alt="..." style="width: 40px;" > : "Allo <b style="color: #994d00">{{ app.user.firstname }}</b>, ta choisit ta planète ? "</h5>
+                <p>Identifiez-vous afin de profiter de notre salons privées interplanétaire, choisissez la prochaine planète ou vous allez travailler <a href="{{ path('app_login') }}" class="btn btn-sm" id="btn">Connectez-vous</a></p>
+            </div>
+            <img src="img/astro2.png" class="d-block w-100">
+        </div>
+        <div class="card text-center" style="border-color: transparent">
+            <div class="card-body">
+                Tous nos salons de <b style="color: #994d00">4 et 6 places</b> sont équipés de :
+                <br>
+                <img src="img/router.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/tasse.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/water.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/apple.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                <img src="img/imprimante.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;&nbsp;
+                <img src="img/monitor.png" class="card-img-top" alt="..." style="width: 34px;" >
+
+            </div>
+        </div>
+
+        <div class="card card-body text-center" id="card-reservation-index">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Salons à 6 places
+                        </div>
+                        <div class="card-body">
+                            {% for SallePrivers in SallePrive6 %}
+                                <h5>{{ SallePrivers.titre }}</h5>
+                                <p class="card-text">{{ SallePrivers.contenu }}</p>
+                                <a href="{{ path('reservation.priv', {id: SallePrivers.id} ) }}" class="btn btn-primary" id="btn">Réserver</a>
+                                <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Salons à 4 places
+                        </div>
+                        <div class="card-body">
+                            {% for SallePrivers in SallePrive4 %}
+                                <h5>{{ SallePrivers.titre }}</h5>
+                                <p class="card-text">{{ SallePrivers.contenu }}</p>
+                                <a href="{{ path('reservation.priv', {id: SallePrivers.id} ) }}" class="btn btn-primary" id="btn">Réserver</a>
+                                <hr class="my-4">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+    {% endblock %}

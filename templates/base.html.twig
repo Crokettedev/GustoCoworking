@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}Coworking{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Crete+Round&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/238a647158.js"></script>
@@ -13,12 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/238a647158.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="{{ asset('app.js') }}"></script>
 </head>
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" id="navbar-home">
-        <a class="navbar-brand" href="{{ path('page_principal') }}"><img src="img/Gusto_7.png" class="mr-3" id="img_Gusto7"></a>
+        <a class="navbar-brand" href="{{ path('page_principal') }}"><img src="{{ asset('img/Gusto_7.png') }}" class="mr-3" id="img_Gusto7"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" id="navbar-toggler-icon"></span>
         </button>
@@ -29,10 +29,26 @@
                     <a class="nav-link" href="{{ path('app_register') }}" id="nav-link">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('public') }}" id="nav-link">Espaces public</a>
+                    <div class="btn-group dropright">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nos espaces
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('public') }}">Public</a>
+                            <a class="dropdown-item" href="{{ path('private') }}">Privé</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('private') }}" id="nav-link">Salons privées</a>
+                    <div class="btn-group dropright">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nos services
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Informatique</a>
+                            <a class="dropdown-item" href="{{ path('food') }}">Menu</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('contact') }}" id="nav-link">Notre histoire</a>
@@ -41,22 +57,32 @@
             {% else %}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="" id="nav-link">Espace public</a>
+                    <div class="btn-group dropright">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nos espaces
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('public') }}">Public</a>
+                            <a class="dropdown-item" href="{{ path('private') }}">Privé</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" id="nav-link">Salons privées</a>
+                    <div class="btn-group dropright">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nos services
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Informatique</a>
+                            <a class="dropdown-item" href="{{ path('food') }}">Menu</a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="" id="nav-link">Commander</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" id="nav-link">Forum</a>
+                    <a class="nav-link" href="" id="nav-link">Message</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('contact') }}" id="nav-link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" id="nav-link">Mon compte</a>
                 </li>
             </ul>
             {% endif %}
@@ -67,13 +93,35 @@
             {% else %}
 
             <span class="navbar-text">
-    				<a class="nav-link" href="{{ path('logout') }}" id="nav-link">Déconnexion</a>
-    			</span>
+                <div class="btn-group dropright">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{ asset('img/user.png') }}" class="card-img-top" alt="..." style="width: 20px;">&nbsp;{{ app.user.lastname }}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('app_edit', {id: app.user.getid()})  }}">Mon compte</a>
+                            <a class="dropdown-item" href="{{ path('logout') }}">Déconnexion</a>
+                        </div>
+                    </div>
+            </span>
+
             {% endif %}
 
         </div>
+
     </nav>
+    {% if app.user %}
+        <div class="container">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a href="{{ path('panier', {id: app.user.getid()})  }}" style="float: right;"><img src="{{ asset('img/cart.png') }}" class="card-img-top" alt="..." style="width: 30px; margin-top: 11px; margin-right: -5px;"><span class="badge badge-warning" id="badge-food">{{ app.user.paniers|length }}</span></a>
+                </li>
+            </ul>
+        </div>
+    {% endif %}
+
 </div>
+
+
 
 {% block body %}{% endblock %}
 
@@ -89,9 +137,9 @@
                     <h5>Contact</h5>
                     <p>Notre histoire<br>contact@gusto.fr<br>
                         01 34 67 00 90 <br>
-                        <a href="#"><img src="img/facebook.png" class="card-img-top" alt="..." style="width: 29px;"></a>
-                        <a href="#"><img src="img/instagram.png" class="card-img-top" alt="..." style="width: 29px;"></a>
-                        <a href="#"><img src="img/linkedin.png" class="card-img-top" alt="..." style="width: 29px;"></a>
+                        <a href="#"><img src="{{ asset('img/facebook.png') }}" class="card-img-top" alt="..." style="width: 29px;"></a>
+                        <a href="#"><img src="{{ asset('img/instagram.png') }}" class="card-img-top" alt="..." style="width: 29px;"></a>
+                        <a href="#"><img src="{{ asset('img/linkedin.png') }}" class="card-img-top" alt="..." style="width: 29px;"></a>
                     </p>
                 </div>
             </div>

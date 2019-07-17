@@ -5,141 +5,86 @@
 {% block body %}
 <br>
 <div class="container">
+    {% if not app.user %}
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-center" id="card_principal_2">
+                    <div class="card-body" >
+                        Espace publique <img src="img/leo.png" class="card-img-top" alt="..." style="width: 30px;" >
+                        <br>
+                        <h5><img src="img/lion.png" class="card-img-top" alt="..." style="width: 29px;" >&nbsp;<img src="img/aries.png" class="card-img-top" alt="..." style="width: 29px;" >&nbsp;&nbsp;<img src="img/taurus.png" class="card-img-top" alt="..." style="width: 29px;" >&nbsp;&nbsp;<img src="img/capricorn.png" class="card-img-top" alt="..." style="width: 29px;" >&nbsp;&nbsp;<img src="img/scorpion.png" class="card-img-top" alt="..." style="width: 29px;" >&nbsp;&nbsp;<img src="img/law.png" class="card-img-top" alt="..." style="width: 29px;" ></h5>
+
+                        <p class="card-text">Vos signes astrologiques affichent tous les jours <br><b style="color: #994d00">MAKE THIS DAY, GREAT !</b> <br> L'espace est équipé de :
+                            <br>
+                            <img src="img/router.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                            <img src="img/tasse.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                            <img src="img/water.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                            <img src="img/apple.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;
+                            <img src="img/imprimante.png" class="card-img-top" alt="..." style="width: 34px;" >&nbsp;&nbsp;
+                            <img src="img/monitor.png" class="card-img-top" alt="..." style="width: 34px;" >
+                        </p>
+                        <p class="card-text">Identifiez-vous afin de reserver une table du zodiaque.
+                        </p>
+                        <a href="{{ path('app_login') }}" class="btn btn-primary" id="btn">Connectez-vous</a>
+                        <br>
+                        <br>
+                        <a href="{{ path('app_register') }}" style="color: black;">Pas encore de compte ? Inscrivez vous</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/great.jpeg" class="d-block w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="card-header text-center" id="card-reser">
         Découvrez nos espaces public
     </div>
-    {% if not app.user %}
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
+    <br>
+        <div class="row flex text-center">
+            {% for SallePubliques in SallePublique %}
+                <div class="col-6">
                     <div class="card">
-                        <div class="card-header" id="card-reser">
-                            Découvrez nos espaces public
-                        </div>
-                        <div class="card-body">
-                            <a href="{{ path('app_register') }}" class="btn btn-primary" id="btn">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
+                        <div class="card-header">
+                            <h5>{{ SallePubliques.titre }}</h5>
+                            <p>Il reste {{ SallePubliques.place }} sur cette table.</p>
+                            <p>La réservation de la place est valable toute la journée.</p>
+                            <p>Le prix est de {{ SallePubliques.prix }} € sur cette table.</p>
+
                         </div>
                     </div>
+                    <br>
                 </div>
-            </div>
+            {% endfor %}
         </div>
-
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" id="card-reser">
-                        Découvrez nos espaces public
-                    </div>
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
+        {% else %}
+            <div class="card-header text-center" id="card-reser">
+                Retrouvez vos espaces public
             </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
+            <br>
+            <div class="row flex text-center">
+                {% for SallePubliques in SallePublique %}
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ SallePubliques.titre }}</h5>
+                                <p>Il reste {{ SallePubliques.place }} sur cette table.</p>
+                                <p>Le prix est de {{ SallePubliques.prix }} sur cette table.</p>
+                                <a href="{{ path('app_register') }}" class="btn btn-primary" id="btn">Réserver</a>
+                            </div>
+                        </div>
+                        <br>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-        </div>
-    </div>
-
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" id="card-reser">
-                        Découvrez nos espaces public
-                    </div>
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% else %}
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" id="card-reser">
-                        Découvrez nos espaces public
-                    </div>
-                    <div class="card-body">
-                        <a href="{{ path('page_principal') }}" class="btn btn-primary" id="btn">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" id="card-reser">
-                        Découvrez nos espaces public
-                    </div>
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-body">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" id="card-reser">
-                        Découvrez nos espaces public
-                    </div>
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     {% endif %}
 
     <br>

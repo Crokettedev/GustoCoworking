@@ -4,11 +4,30 @@
     <br>
     <div class="container">
     {% if not app.user %}
-    <h5>Traviller chez Gusto-Coffe c'est :
-        <span class="txt-rotate" data-period="9000" data-rotate='[ "Travailler en équipe.", "Créer son équipe.", "Aider un collègue ou un futur collègue.", "Le Kiffe tout simplement !" ]'></span>
-    </h5>
+
 
     <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-center" id="card_principal_2">
+                <div class="card-body" >
+                    <img src="img/Gusto_7.png" class="mr-3" id="img_Gusto7bis">
+                    <br>
+                    <h5>Ne passez pas à côté <b style="color: #994d00">de vos espaces de coworking</b></h5>
+                    <p class="card-text">Identifiez-vous afin de profiter de notre réseau de professionnel grâce à notre outil créé pour vous la <b style="color: #994d00">teamwork</b> ainsi que de notre délicieu café.
+                    </p>
+                    <div>
+                        <a href="#"><img src="img/thumbnail_large.png" class="card-img-top" id="thumbnail"></a>
+                        <a href="#"><img src="img/teamwork.png" class="card-img-top" id="thumbnail"></a>
+                    </div>
+                    <br>
+                        <a href="{{ path('app_login') }}" class="btn btn-primary" id="btn">Connectez-vous</a>
+                    <br>
+                    <br>
+                    <a href="{{ path('app_register') }}" style="color: black;">Pas encore de compte ? Inscrivez vous</a>
+                </div>
+            </div>
+        </div>
+
         <div class="col-sm-6">
             <div class="card">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -30,58 +49,45 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-6">
-            <div class="card text-center" id="card_principal_2">
-                <div class="card-body" >
-                    <img src="img/Gusto_7.png" class="mr-3" id="img_Gusto7bis">
-                    <p class="card-text">Un lieu d'échange et de partage autour d'un café venu d'Italie avec nos délicieuse viennoiseries.</p>
-                    <div>
-                        <a href="#"><img src="img/thumbnail_large.png" class="card-img-top" id="thumbnail"></a>
-                        <a href="#"><img src="img/tasse.png" class="card-img-top" id="tasse"></a>
-                        <a href="#"><img src="img/donuts.png" class="card-img-top" id="donuts"></a>
-                    </div>
-                    <br>
-                    <p class="card-text">Profitez aussi de nos espaces équipés avec impression et stockage privée en ligne.</p>
-                    <div>
-                        <a href="#"><img src="img/ordi.png" class="card-img-top" id="ordi"></a>
-                        <a href="#"><img src="img/database.png" class="card-img-top" id="database"></a>
-                        <a href="#"><img src="img/imprimante.png" class="card-img-top" id="imprimante"></a>
-                    </div>
-                    <br>
-                    <a href="#" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" id="btn" aria-controls="collapseExample">Réserver une place</a>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="card mb-3 text-center" id="card-reservation-index">
-        <div class="collapse" id="collapseExample">
-            <h5>Pensez à vous inscrire avant de réserver, c'est rapide &nbsp;<img src="img/wink.png" class="card-img-top" alt="..." id="wink">&nbsp;&nbsp;<a href="{{ path('app_register') }}" class="btn btn-primary" id="btn">S'inscrire</a></h5>
-            <div class="card card-body" id="card-reservation-index">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Espace public</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{{ path('public') }}" class="btn btn-primary" id="btn">Réserver ici</a>
-                            </div>
+        <div class="card card-body text-center" id="card-reservation-index">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Vous êtes plutôt <img src="img/bubble-speech.png" class="card-img-top" alt="..." style="width: 30px;" >
+                        </div>
+                        <div class="card-body">
+                            <h5>Espace public <img src="img/leo.png" class="card-img-top" alt="..." style="width: 23px;" ></h5>
+                            <p class="card-text">Êtes vous prêt a travailler avec vos signes astrologique ?</p>
+                            <a href="{{ path('public') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+                            <hr class="my-4">
+                            <h5>Salons privées <img src="img/astronaut.png" class="card-img-top" alt="..." style="width: 30px;" ></h5>
+                            <p class="card-text">Lance Armstrong a mis le pied sur la Lune, à votre tour d'essayer !</p>
+                            <a href="{{ path('private') }}" class="btn btn-primary" id="btn">En savoir plus</a>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Salons privées</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="{{ path('private') }}" class="btn btn-primary" id="btn">Réserver ici</a>
-                            </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Gusto services <img src="img/add-friend.png" class="card-img-top" alt="..." style="width: 30px;" >
+                        </div>
+                        <div class="card-body">
+                            <h5>Outils informatique <img src="img/ordi.png" class="card-img-top" alt="..." style="width: 23px;" ></h5>
+                            <p class="card-text">Gusto a mis à votre disposition, la possibilité de commander du support informatique. Soyez équipé pour travailler dans les meilleures conditions</p>
+                            <a href="{{ path('food') }}" class="btn btn-primary" id="btn">En savoir plus</a>
+                            <hr class="my-4">
+                            <h5>Restauration <img src="img/tasse.png" class="card-img-top" alt="..." style="width: 30px;" ></h5>
+                            <p class="card-text"> Gusto, vous accompagne toute au long de la journée avec nos délicieux repas fait maison 100 % produit français et notre magnifique sélection de café</p>
+                            <a href="{{ path('food') }}" class="btn btn-primary" id="btn">En savoir plus</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
     <div class="row">
         <div class="col-sm-6">
@@ -127,14 +133,28 @@
         </div>
     </div>
     {% else %}
+        <div class="card text-center" id="card-reser">
+            <div class="card-header" id="card-reser">
+                Les news de Gusto-Coffee <img src="img/newspaper.png" class="card-img-top" alt="..." style="width: 30px;" >
+            </div>
+            <div class="card-body">
+                {% for News in LesNews %}
+                    <div class="alert alert-info" role="alert">
+                        <img src="img/new.png" class="card-img-top" alt="..." style="width: 30px; float: left;">{{ News.titre }}
+                    </div>
+                {% endfor %}
+                <a href="{{ path('news') }}" class="btn btn-primary" id="btn" >Consulter les news</a>
+            </div>
+        </div>
     <div class="card card-body text-center" id="card-reservation-index">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card" id="card-reser">
                     <div class="card-header" id="card-reser">
-                        Les dernières news
+                        Vos dernières commandes <img src="img/salad (1).png" class="card-img-top" alt="..." style="width: 30px;" >
                     </div>
                     <div class="card-body">
+                        <a href="#" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" id="btn" aria-controls="collapseExample">Consulter</a>
 
                     </div>
                 </div>
@@ -145,12 +165,71 @@
                         Vos dernières réservations
                     </div>
                     <div class="card-body">
+                        <a href="#" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" id="btn" aria-controls="collapseExample">Réserver une place</a>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+        <div class="card mb-3 text-center" id="card-reservation-index">
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body" id="card-reservation-index">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Espace public</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="{{ path('public') }}" class="btn btn-primary" id="btn">Réserver ici</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Salons privées</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="{{ path('private') }}" class="btn btn-primary" id="btn">Réserver ici</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-body text-center" id="card-reservation-index">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Vos derniers messages <img src="img/conversation.png" class="card-img-top" alt="..." style="width: 30px;" >
+                        </div>
+                        <div class="card-body">
+                            {% for News in LesNews %}
+                                <div class="alert alert-info" role="alert">
+                                    <img src="img/new.png" class="card-img-top" alt="..." style="width: 30px; float: left;">{{ News.titre }}
+                                </div>
+                            {% endfor %}
+                            <a href="{{ path('news') }}" class="btn btn-primary" id="btn" >Consulter les news</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" id="card-reser">
+                        <div class="card-header" id="card-reser">
+                            Demandes d'ajout <img src="img/add-friend.png" class="card-img-top" alt="..." style="width: 30px;" >
+                        </div>
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" id="btn" aria-controls="collapseExample">Consulter</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     <br>
