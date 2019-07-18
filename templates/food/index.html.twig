@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% if not app.user %}
+    <div class="card text-center" style="border-color: transparent">
+        <div class="card-body">
+            <h5 class="card-title"><h5> <img src="img/chef.png" class="mr-3" id="img_chef"> Bienvenu au restaurant Gusto</h5></h5>
+            <p>Identifiez-vous afin de profiter de notre carte et des délicieux plat préparer par nos cuisiniers italiens. <a href="{{ path('app_login') }}" class="btn btn-sm" id="btn">Connectez-vous</a></p>
+        </div>
+        <img src="img/pasta.jpg" class="d-block w-100">
+    </div>
+
+    <div class="card card-body text-center" id="card-reservation-index">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Menu <img src="img/salad (1).png" class="card-img-top" alt="..." style="width: 30px;">
+                    </div>
+                    <div class="card-body">
+                        {% for Food in FoodMenu %}
+                        <h5>{{ Food.nom }} </h5>
+                        <p class="card-text">{{ Food.contenu }}</p>
+                        <p class="card-text"><small class="text-muted">Le prix est de {{ Food.prix }} €</small></p>
+                        <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Boissons <img src="img/cocktail.png" class="card-img-top" alt="..." style="width: 30px;">
+                    </div>
+                    <div class="card-body">
+                        {% for Foods in FoodBoissons %}
+                            <h5>{{ Foods.nom }} </h5>
+                            <p class="card-text">{{ Foods.contenu }}</p>
+                            <p class="card-text"><small class="text-muted">Le prix est de {{ Foods.prix }} €</small></p>
+                            <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card text-center" style="border-color: transparent">
+        <div class="card-body">
+            <h5 class="card-title"><h5> <img src="img/chef.png" class="mr-3" id="img_chef"> Bienvenu au restaurant Gusto</h5></h5>
+        </div>
+        <img src="img/pasta.jpg" class="d-block w-100">
+    </div>
+
+    <div class="card card-body text-center" id="card-reservation-index">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Menu <img src="img/salad (1).png" class="card-img-top" alt="..." style="width: 30px;">
+                    </div>
+                    <div class="card-body">
+                        {% for Food in FoodMenu %}
+                            <img src="{{ Food.image }}" class="card-img-top" alt="...">
+                            <h5>{{ Food.nom }} </h5>
+                            <p class="card-text">{{ Food.contenu }}</p>
+                            <p class="card-text"><small class="text-muted">Le prix est de {{ Food.prix }} €</small></p>
+                            <a href="{{ path('commande.food', {id: Food.getId()} ) }}" class="btn btn-primary" id="btn">Je veux</a>
+                            <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" id="card-reser">
+                    <div class="card-header" id="card-reser">
+                        Boissons <img src="img/cocktail.png" class="card-img-top" alt="..." style="width: 30px;">
+                    </div>
+                    <div class="card-body">
+                        {% for Foods in FoodBoissons %}
+                            <h5>{{ Foods.nom }} </h5>
+                            <p class="card-text">{{ Foods.contenu }}</p>
+                            <a href="{{ path('commande.food', {id: Foods.id} ) }}" class="btn btn-primary" id="btn">Je veux</a>
+                            <hr class="my-4">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <br>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commander{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+        <div class="modal-dialog" role="document">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {% if not panierForm.vars.valid %}
+                <div class="alert alert-danger">
+                    Votre message n'a pas pu être envoyer.
+                </div>
+            {% endif %}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b style="color: #994d00">{{ commander.nom }}</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">{{ commander.prix }}€</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ commander.contenu }}</p>
+                    {{ form_start(panierForm) }}
+                    <div class="form-group text-center">
+                        {{ form_row(panierForm.idfood) }}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form_row(panierForm.idusers) }}
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btn">Ajouter au panier</button>
+                </div>
+                    {{ form_end(panierForm) }}
+            </div>
+        </div>
+    <br>
+    {% endblock %}
